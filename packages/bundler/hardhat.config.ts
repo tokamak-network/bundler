@@ -6,6 +6,8 @@ import fs from 'fs'
 
 import { HardhatUserConfig } from 'hardhat/config'
 import { NetworkUserConfig } from 'hardhat/src/types/config'
+import dotenv from "dotenv" 
+dotenv.config();
 
 const mnemonicFileName = process.env.MNEMONIC_FILE
 let mnemonic = 'test '.repeat(11) + 'junk'
@@ -38,7 +40,14 @@ const config: HardhatUserConfig = {
       url: 'http://localhost:8545/',
       saveDeployments: false
     },
-    goerli: getInfuraNetwork('goerli')
+    goerli: getInfuraNetwork('goerli'),
+    titangoerli: {
+      url: `${process.env.ETH_NODE_URI_TITAN_GOERLI}`,
+      accounts: [`${process.env.PRIVATE_KEY}`],
+      chainId: 5050,
+      gasPrice: 1000000,
+      // deploy: ['deploy']
+    }
   },
   solidity: {
     version: '0.8.15',

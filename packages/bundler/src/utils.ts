@@ -69,7 +69,6 @@ export async function supportsDebugTraceCall (provider: JsonRpcProvider): Promis
   if (p._clientVersion == null) {
     p._clientVersion = await provider.send('web3_clientVersion', [])
   }
-
   // make sure we can trace a call.
   const ret = await debug_traceCall(provider,
     { from: AddressZero, to: AddressZero, data: '0x' },

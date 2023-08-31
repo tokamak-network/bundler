@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "runop": "ts-node ./src/runner/runop.ts",
-    "bundler": "ts-node ./src/exec.ts --config ./localconfig/bundler.config.json",
+    "bundler-local": "ts-node ./src/exec.ts --config ./config/local/bundler.config.local.json",
+    "bundler-goerli": "ts-node ./src/exec.ts --config ./config/titan-goerli/bundler.config.goerli.json",
     "clear": "rm -rf dist artifacts cache src/types",
     "hardhat-compile": "hardhat compile",
     "hardhat-node": "npx hardhat node --no-deploy",
@@ -57,6 +58,7 @@
     "hardhat-deploy": "^0.11.11",
     "solidity-coverage": "^0.7.21",
     "ts-node": ">=8.0.0",
-    "typechain": "^8.1.0"
+    "typechain": "^8.1.0",
+    "dotenv": "^16.0.3"
   }
 }
